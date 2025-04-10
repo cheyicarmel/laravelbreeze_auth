@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\etudiants;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class EtudiantController extends Controller
 {
@@ -27,6 +28,15 @@ class EtudiantController extends Controller
         $etudiant->filiere = $request->filiere;
         $etudiant->save();
         return redirect("/etudiant")->with('statut','Etudiant ajouté avec succès');
+    }
+
+    // Fonction pour générer le pdf
+    public function generatePdf() {
+        $etud = etudiants::all();
+
+        $pdf = Pdf::loadView('etudiants.pdfcontenu', compact('etud'));
+
+        return $pdf->download('liste.pdf');
     }
 
     // Supprimer un étudiant de la base de données 

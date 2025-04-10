@@ -24,6 +24,9 @@ Route::post('/miseajour', [EtudiantController::class, 'update']);
 // Route pour la suppression d'un étudiant
 Route::get('/supprimer/{id}', [EtudiantController::class, 'supprimer']);
 
+// Route pour l'exécution de la fonction qui génère le pdf
+Route::get('/generate-pdf', [EtudiantController::class, 'generatePdf']);
+
 Route::get('/dashboard', function () {
     $etudiants = etudiants::all();
     return view('dashboard', compact('etudiants'));

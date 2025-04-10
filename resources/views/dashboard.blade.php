@@ -23,8 +23,10 @@
                                             {{ session("statut") }}
                                         </div>
                                     } @endif
+
                                     <h2 class="my-5">Liste des étudiants</h2>
-                                    <a href="/etudiant" class="btn btn-primary">Ajouter nouvel étudiant</a><br>
+                                    <a href="/etudiant" class="btn btn-outline-primary">Ajouter nouvel étudiant</a>
+                                    <a href="/generate-pdf" class="btn btn-outline-success"> Télécharger la liste des étudiants</a> <br> <br>
 
                                     <table class="table">
                                         <thead>
